@@ -1,0 +1,9 @@
+D:\WorkSpace_VS\fitness\fitness\fitness\bin\Debug\fitness.exe.config
+D:\WorkSpace_VS\fitness\fitness\fitness\bin\Debug\fitness.exe
+D:\WorkSpace_VS\fitness\fitness\fitness\bin\Debug\fitness.pdb
+D:\WorkSpace_VS\fitness\fitness\fitness\obj\Debug\fitness.csprojResolveAssemblyReference.cache
+D:\WorkSpace_VS\fitness\fitness\fitness\obj\Debug\fitness.Form1.resources
+D:\WorkSpace_VS\fitness\fitness\fitness\obj\Debug\fitness.Properties.Resources.resources
+D:\WorkSpace_VS\fitness\fitness\fitness\obj\Debug\fitness.csproj.GenerateResource.Cache
+D:\WorkSpace_VS\fitness\fitness\fitness\obj\Debug\fitness.exe
+D:\WorkSpace_VS\fitness\fitness\fitness\obj\Debug\fitness.pdb

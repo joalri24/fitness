@@ -42,39 +42,46 @@ namespace fitness
             Organismo.FitnessA = (float)fitnessA.Value;
 
             ImprimirPoblacion(1);
+            bool topeAlcanzado = false;
 
-            for (int i = 0; i < numCiclos.Value; i++)
+            for (int i = 0; i < numCiclos.Value && !topeAlcanzado; i++)
             {
                 int nuevoTamaño = (int) (Poblacion.Organismos.Length * (1 + (float)(crecimiento.Value / 100)));
-                Console.WriteLine("NT: " + nuevoTamaño);
+                nuevoTamaño = (crecimiento.Value != 0 && nuevoTamaño == Poblacion.Organismos.Length) ? nuevoTamaño + 1 : nuevoTamaño;
                 Poblacion.Reproducir(nuevoTamaño);
-                ImprimirPoblacion(i+2);
+                topeAlcanzado = ImprimirPoblacion(i+2);
             }
 
-           
+
             /*foreach (var org in Poblacion.Organismos)
             {
                 Console.WriteLine(org.rasgo + " fit: " + org.DarFitness());
             }*/
 
+            Console.WriteLine("------------------------------ FIN ------------------------------");
 
         }
 
 
-        private void ImprimirPoblacion(int generacion)
+        private bool ImprimirPoblacion(int generacion)
         {
-            Console.WriteLine("Generación " + generacion);
+            
+            Console.WriteLine("Generación " + generacion + " ------------------------------");
+            Console.WriteLine("individuos: " + Poblacion.Organismos.Length);
             int As = 0;
+
 
             foreach (var organismo in Poblacion.Organismos)
             {
                 if (organismo.rasgo == Organismo.Rasgo.A)
                     As++;
-                Console.WriteLine(organismo.rasgo);
+                 //Console.WriteLine(organismo.rasgo); // Imprime cada organismo
             }
-
-            Console.WriteLine("%A:  " + (float)As/Poblacion.Organismos.Length * 100f);
-            Console.WriteLine("%B:  " + (Poblacion.Organismos.Length - (float)As) / Poblacion.Organismos.Length * 100f);
+            float porcentajeA = (float)As / Poblacion.Organismos.Length * 100f;
+            bool topeAlcanzado = (porcentajeA == 100f || porcentajeA == 0f);
+            Console.WriteLine("%A:  " + porcentajeA);
+            Console.WriteLine("%B:  " + (100f - porcentajeA));
+            return topeAlcanzado;
         }
 
 

@@ -55,10 +55,10 @@ namespace fitness
                     float random = rng.Next(0, 100) /100f ;         
                     if (random <= fitness)
                     {
-                        Console.WriteLine("Rasgo: " + Organismos[index].rasgo + " rand:" + random);
+                        //Console.WriteLine("Rasgo: " + Organismos[index].rasgo + " rand:" + random);
                         nuevaPoblacion[i] = new Organismo(Organismos[index].rasgo);                 
                         i++;
-                        break;
+                        break; // Termina el while, no el for.
                     }                    
                 }
             }

@@ -7,3 +7,12 @@ D:\WorkSpace_VS\fitness\fitness\fitness\obj\Debug\fitness.Properties.Resources.r
 D:\WorkSpace_VS\fitness\fitness\fitness\obj\Debug\fitness.csproj.GenerateResource.Cache
 D:\WorkSpace_VS\fitness\fitness\fitness\obj\Debug\fitness.exe
 D:\WorkSpace_VS\fitness\fitness\fitness\obj\Debug\fitness.pdb
+D:\WorkSpace_VS\fitness_repo\fitness_r\fitness\bin\Debug\fitness.exe.config
+D:\WorkSpace_VS\fitness_repo\fitness_r\fitness\obj\Debug\fitness.exe
+D:\WorkSpace_VS\fitness_repo\fitness_r\fitness\obj\Debug\fitness.pdb
+D:\WorkSpace_VS\fitness_repo\fitness_r\fitness\bin\Debug\fitness.exe
+D:\WorkSpace_VS\fitness_repo\fitness_r\fitness\bin\Debug\fitness.pdb
+D:\WorkSpace_VS\fitness_repo\fitness_r\fitness\obj\Debug\fitness.csprojResolveAssemblyReference.cache
+D:\WorkSpace_VS\fitness_repo\fitness_r\fitness\obj\Debug\fitness.Fitness.resources
+D:\WorkSpace_VS\fitness_repo\fitness_r\fitness\obj\Debug\fitness.Properties.Resources.resources
+D:\WorkSpace_VS\fitness_repo\fitness_r\fitness\obj\Debug\fitness.csproj.GenerateResource.Cache

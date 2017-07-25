@@ -1,6 +1,6 @@
 ﻿namespace fitness
 {
-    partial class Form1
+    partial class Fitness
     {
         /// <summary>
         /// Required designer variable.
@@ -29,20 +29,21 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.tamañoInicial = new System.Windows.Forms.NumericUpDown();
+            this.porcentajeA = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.fitnessA = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
+            this.crecimiento = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.numCiclos = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            this.button1 = new System.Windows.Forms.Button();
+            ((System.ComponentModel.ISupportInitialize)(this.tamañoInicial)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.porcentajeA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.crecimiento)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCiclos)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -54,20 +55,29 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Número inicial";
             // 
-            // numericUpDown1
+            // tamañoInicial
             // 
-            this.numericUpDown1.Location = new System.Drawing.Point(100, 11);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(100, 20);
-            this.numericUpDown1.TabIndex = 1;
+            this.tamañoInicial.Location = new System.Drawing.Point(100, 11);
+            this.tamañoInicial.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.tamañoInicial.Name = "tamañoInicial";
+            this.tamañoInicial.Size = new System.Drawing.Size(100, 20);
+            this.tamañoInicial.TabIndex = 1;
+            this.tamañoInicial.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
-            // numericUpDown2
+            // porcentajeA
             // 
-            this.numericUpDown2.Location = new System.Drawing.Point(100, 40);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(62, 20);
-            this.numericUpDown2.TabIndex = 3;
-            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
+            this.porcentajeA.Location = new System.Drawing.Point(100, 40);
+            this.porcentajeA.Name = "porcentajeA";
+            this.porcentajeA.Size = new System.Drawing.Size(62, 20);
+            this.porcentajeA.TabIndex = 3;
             // 
             // label2
             // 
@@ -77,14 +87,29 @@
             this.label2.Size = new System.Drawing.Size(40, 13);
             this.label2.TabIndex = 2;
             this.label2.Text = "% de A";
-            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // numericUpDown3
+            // fitnessA
             // 
-            this.numericUpDown3.Location = new System.Drawing.Point(99, 71);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(63, 20);
-            this.numericUpDown3.TabIndex = 5;
+            this.fitnessA.DecimalPlaces = 2;
+            this.fitnessA.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.fitnessA.Location = new System.Drawing.Point(99, 71);
+            this.fitnessA.Maximum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.fitnessA.Name = "fitnessA";
+            this.fitnessA.Size = new System.Drawing.Size(86, 20);
+            this.fitnessA.TabIndex = 5;
+            this.fitnessA.Value = new decimal(new int[] {
+            9,
+            0,
+            0,
+            65536});
             // 
             // label3
             // 
@@ -95,12 +120,12 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Fitness  de A";
             // 
-            // numericUpDown4
+            // crecimiento
             // 
-            this.numericUpDown4.Location = new System.Drawing.Point(99, 103);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(63, 20);
-            this.numericUpDown4.TabIndex = 7;
+            this.crecimiento.Location = new System.Drawing.Point(99, 103);
+            this.crecimiento.Name = "crecimiento";
+            this.crecimiento.Size = new System.Drawing.Size(63, 20);
+            this.crecimiento.TabIndex = 7;
             // 
             // label4
             // 
@@ -111,23 +136,23 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Crecimiento";
             // 
-            // numericUpDown5
+            // numCiclos
             // 
-            this.numericUpDown5.Location = new System.Drawing.Point(99, 139);
-            this.numericUpDown5.Maximum = new decimal(new int[] {
+            this.numCiclos.Location = new System.Drawing.Point(99, 139);
+            this.numCiclos.Maximum = new decimal(new int[] {
             2000000,
             0,
             0,
             0});
-            this.numericUpDown5.Minimum = new decimal(new int[] {
+            this.numCiclos.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(86, 20);
-            this.numericUpDown5.TabIndex = 9;
-            this.numericUpDown5.Value = new decimal(new int[] {
+            this.numCiclos.Name = "numCiclos";
+            this.numCiclos.Size = new System.Drawing.Size(86, 20);
+            this.numCiclos.TabIndex = 9;
+            this.numCiclos.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -142,28 +167,39 @@
             this.label5.TabIndex = 8;
             this.label5.Text = "# ciclos";
             // 
-            // Form1
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(16, 187);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(212, 23);
+            this.button1.TabIndex = 10;
+            this.button1.Text = "Correr";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // Fitness
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(253, 321);
-            this.Controls.Add(this.numericUpDown5);
+            this.ClientSize = new System.Drawing.Size(253, 229);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.numCiclos);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.numericUpDown4);
+            this.Controls.Add(this.crecimiento);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.numericUpDown3);
+            this.Controls.Add(this.fitnessA);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.numericUpDown2);
+            this.Controls.Add(this.porcentajeA);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.tamañoInicial);
             this.Controls.Add(this.label1);
-            this.Name = "Form1";
-            this.Text = "Form1";
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            this.Name = "Fitness";
+            this.Text = "Fitness";
+            ((System.ComponentModel.ISupportInitialize)(this.tamañoInicial)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.porcentajeA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fitnessA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.crecimiento)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCiclos)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -172,15 +208,16 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown tamañoInicial;
+        private System.Windows.Forms.NumericUpDown porcentajeA;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown fitnessA;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
+        private System.Windows.Forms.NumericUpDown crecimiento;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown numCiclos;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
     }
 }
 

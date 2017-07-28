@@ -39,11 +39,15 @@
             this.numCiclos = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.label6 = new System.Windows.Forms.Label();
+            this.replicas = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.tamañoInicial)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.porcentajeA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessA)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.crecimiento)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCiclos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.replicas)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -123,6 +127,11 @@
             // crecimiento
             // 
             this.crecimiento.Location = new System.Drawing.Point(99, 103);
+            this.crecimiento.Minimum = new decimal(new int[] {
+            100,
+            0,
+            0,
+            -2147483648});
             this.crecimiento.Name = "crecimiento";
             this.crecimiento.Size = new System.Drawing.Size(63, 20);
             this.crecimiento.TabIndex = 7;
@@ -169,7 +178,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(16, 187);
+            this.button1.Location = new System.Drawing.Point(16, 221);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(212, 23);
             this.button1.TabIndex = 10;
@@ -177,11 +186,54 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(168, 105);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(15, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "%";
+            // 
+            // replicas
+            // 
+            this.replicas.Location = new System.Drawing.Point(100, 186);
+            this.replicas.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.replicas.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            this.replicas.Name = "replicas";
+            this.replicas.Size = new System.Drawing.Size(86, 20);
+            this.replicas.TabIndex = 13;
+            this.replicas.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 188);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(58, 13);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "# Réplicas";
+            // 
             // Fitness
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(253, 229);
+            this.ClientSize = new System.Drawing.Size(253, 256);
+            this.Controls.Add(this.replicas);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.numCiclos);
             this.Controls.Add(this.label5);
@@ -200,6 +252,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.fitnessA)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.crecimiento)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numCiclos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.replicas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -218,6 +271,9 @@
         private System.Windows.Forms.NumericUpDown numCiclos;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown replicas;
+        private System.Windows.Forms.Label label7;
     }
 }
 

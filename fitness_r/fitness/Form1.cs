@@ -22,6 +22,8 @@ namespace fitness
 
         private Poblacion Poblacion { get; set; }
 
+        private List<string> lineasArchivo;
+
 
 
         // ------------------------------------------------------
@@ -37,28 +39,41 @@ namespace fitness
 
         private void button1_Click(object sender, EventArgs e)
         {
+            lineasArchivo = new List<string>();
 
-            Poblacion = new Poblacion((int)tamañoInicial.Value, (float)porcentajeA.Value / 100);
-            Organismo.FitnessA = (float)fitnessA.Value;
-
-            ImprimirPoblacion(1);
-            bool topeAlcanzado = false;
-
-            for (int i = 0; i < numCiclos.Value && !topeAlcanzado; i++)
+            lineasArchivo.Add("#generación, %A, %B, #individuos");
+            for (int j = 0; j < replicas.Value; j++)
             {
-                int nuevoTamaño = (int) (Poblacion.Organismos.Length * (1 + (float)(crecimiento.Value / 100)));
-                nuevoTamaño = (crecimiento.Value != 0 && nuevoTamaño == Poblacion.Organismos.Length) ? nuevoTamaño + 1 : nuevoTamaño;
-                Poblacion.Reproducir(nuevoTamaño);
-                topeAlcanzado = ImprimirPoblacion(i+2);
+                Console.WriteLine("------------------------------ Réplica "+ (j+1) +" ------------------------------");
+                lineasArchivo.Add(">Replica " + (j + 1));
+                Poblacion = new Poblacion((int)tamañoInicial.Value, (float)porcentajeA.Value / 100);
+                Organismo.FitnessA = (float)fitnessA.Value;
+
+                ImprimirPoblacion(1);
+                bool topeAlcanzado = false;
+
+                for (int i = 0; i < numCiclos.Value && !topeAlcanzado; i++)
+                {
+
+                    float multiplicador = (1 + (float)(crecimiento.Value / 100));
+                    float adicion = Poblacion.Organismos.Length * multiplicador;
+                    int nuevoTamaño = (int)adicion;
+
+                    nuevoTamaño = (crecimiento.Value != 0 && nuevoTamaño == Poblacion.Organismos.Length) ? nuevoTamaño + 1 : nuevoTamaño;
+                    Poblacion.Reproducir(nuevoTamaño);
+                    topeAlcanzado = ImprimirPoblacion(i + 2);
+                }
+
+
+                /*foreach (var org in Poblacion.Organismos)
+                {
+                    Console.WriteLine(org.rasgo + " fit: " + org.DarFitness());
+                }*/
+
+                Console.WriteLine("------------------------------ FIN ------------------------------");
             }
 
-
-            /*foreach (var org in Poblacion.Organismos)
-            {
-                Console.WriteLine(org.rasgo + " fit: " + org.DarFitness());
-            }*/
-
-            Console.WriteLine("------------------------------ FIN ------------------------------");
+            System.IO.File.WriteAllLines("Resultados.txt", lineasArchivo.ToArray());
 
         }
 
@@ -81,6 +96,7 @@ namespace fitness
             bool topeAlcanzado = (porcentajeA == 100f || porcentajeA == 0f);
             Console.WriteLine("%A:  " + porcentajeA);
             Console.WriteLine("%B:  " + (100f - porcentajeA));
+            lineasArchivo.Add(generacion + ";" + porcentajeA +";" + (100f - porcentajeA) +";"+ Poblacion.Organismos.Length);
             return topeAlcanzado;
         }
 

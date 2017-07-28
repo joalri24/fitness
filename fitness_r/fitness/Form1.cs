@@ -11,7 +11,7 @@ using System.Windows.Forms;
 namespace fitness
 {
     /// <summary>
-    /// <Author> Jose Riaño 2017 </Author>
+    /// <Author> Jose Riaño, César Aponte -  2017 </Author>
     /// </summary>
     public partial class Fitness : Form
     {

@@ -28,7 +28,7 @@ namespace fitness
         {
             Organisms = new Organism[size];
             int amountOfA = (int)(size * aPercentage);
-            Console.WriteLine("As: " + size * aPercentage);
+            //Console.WriteLine("As: " + size * aPercentage);
 
             for (int i = 0; i < size; i++)
             {

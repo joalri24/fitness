@@ -6,45 +6,46 @@ using System.Threading.Tasks;
 
 namespace fitness
 {
-    class Organismo
+    class Organism
     {
         // ------------------------------------------------------
-        // Constantes
+        // Constants
         // ------------------------------------------------------
 
-        public enum Rasgo
+        public enum Trait
         {
             A,
             B
         }
 
         // ------------------------------------------------------
-        // Atributos
+        // Attributes
         // ------------------------------------------------------
 
-        public Rasgo rasgo { get; set; }
+        public Trait trait { get; set; }
 
         public static float FitnessA;
 
 
         // ------------------------------------------------------
-        // Métodos
+        // Methods
         // ------------------------------------------------------
 
-        public Organismo(Rasgo rasgoP)
+        public Organism(Trait traitP)
         {
-            rasgo = rasgoP;
+            trait = traitP;
         }
 
-        
-        public float DarFitness()
+        /// <summary>
+        /// The fitness for the A trait is given by the user.
+        /// The fitness for the B trait is 1 - fitness A.
+        /// </summary>
+        /// <returns></returns>
+        public float GetFitness()
         {
-            float resp = (rasgo == Rasgo.A)? FitnessA: 1- FitnessA;
+            float resp = (trait == Trait.A)? FitnessA: 1- FitnessA;
             return resp;
         }
-
-
-
 
     }
 }

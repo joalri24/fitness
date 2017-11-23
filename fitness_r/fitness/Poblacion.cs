@@ -6,72 +6,65 @@ using System.Threading.Tasks;
 
 namespace fitness
 {
-    class Poblacion
+    class Population
     {
 
         // ------------------------------------------------------
-        // Atributos
+        // Attributes
         // ------------------------------------------------------
 
-        public Organismo[] Organismos { get; set; }
+        public Organism[] Organisms { get; set; }
 
 
         // ------------------------------------------------------
         // Métodos
         // ------------------------------------------------------
-
-        public Poblacion (int tamaño, float porcentajeA)
+        /// <summary>
+        /// Creates a new population 
+        /// </summary>
+        /// <param name="size">population's initial size</param>
+        /// <param name="aPercentage">% of organism with the A trait</param>
+        public Population (int size, float aPercentage)
         {
-            Organismos = new Organismo[tamaño];
+            Organisms = new Organism[size];
+            int amountOfA = (int)(size * aPercentage);
+            Console.WriteLine("As: " + size * aPercentage);
 
-            int cantidadDeA = (int)(tamaño * porcentajeA);
-
-            Console.WriteLine("As: " + tamaño * porcentajeA);
-            for (int i = 0; i < tamaño; i++)
+            for (int i = 0; i < size; i++)
             {
-                if (i < cantidadDeA)
-                    Organismos[i] = new Organismo(Organismo.Rasgo.A);
+                if (i < amountOfA)
+                    Organisms[i] = new Organism(Organism.Trait.A);
                 else
-                    Organismos[i] = new Organismo(Organismo.Rasgo.B);
-            }
-            
+                    Organisms[i] = new Organism(Organism.Trait.B);
+            }        
         }
 
         /// <summary>
-        /// 
+        /// Simulates the change of generation in the population.
         /// </summary>
-        /// <param name="nuevoTamaño"></param>
-        public void Reproducir(int nuevoTamaño)
+        /// <param name="newSize"></param>
+        public void Reproduce(int newSize)
         {
-            Organismo[] nuevaPoblacion = new Organismo[nuevoTamaño];
+            Organism[] newPopulation = new Organism[newSize];
             Random rng = new Random();
 
-            for (int i = 0; i < nuevoTamaño;)
+            for (int i = 0; i < newSize;) 
             {
-                while (nuevaPoblacion[i] == null)
+                while (newPopulation[i] == null)
                 {
-                    int index = rng.Next(0, Organismos.Length -1); // Selecciona un organismo al azar.
-                    float fitness = Organismos[index].DarFitness();
+                    int index = rng.Next(0, Organisms.Length -1); // Select a random organism.
+                    float fitness = Organisms[index].GetFitness();
                     float random = rng.Next(0, 100) /100f ;         
-                    if (random <= fitness)
+                    if (random <= fitness) // if the organism was able to reproduce
                     {
-                        //Console.WriteLine("Rasgo: " + Organismos[index].rasgo + " rand:" + random);
-                        nuevaPoblacion[i] = new Organismo(Organismos[index].rasgo);                 
+                        newPopulation[i] = new Organism(Organisms[index].trait);                 
                         i++;
-                        break; // Termina el while, no el for.
+                        break; // breaks the 'while', not the 'for'.
                     }                    
                 }
             }
-
-            Organismos = nuevaPoblacion;
-
+            Organisms = newPopulation;
         }
 
-
-
-
-
     }
-
-
 }

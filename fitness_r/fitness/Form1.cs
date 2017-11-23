@@ -17,17 +17,15 @@ namespace fitness
     {
 
         // ------------------------------------------------------
-        // Atributos
+        // Attributes
         // ------------------------------------------------------
 
-        private Poblacion Poblacion { get; set; }
-
-        private List<string> lineasArchivo;
-
+        private Population Population { get; set; }
+        private List<string> fileLines;
 
 
         // ------------------------------------------------------
-        // Métodos
+        // Methods
         // ------------------------------------------------------
 
         public Fitness()
@@ -36,70 +34,71 @@ namespace fitness
         }
 
 
-
+        /// <summary>
+        /// Executed when button1 is clicked.
+        /// Creates a population and starts the simulation.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button1_Click(object sender, EventArgs e)
         {
-            lineasArchivo = new List<string>();
+            fileLines = new List<string>();
+            fileLines.Add("generation, %A, %B, tot. individuals"); // Header line
 
-            lineasArchivo.Add("#generación, %A, %B, #individuos");
             for (int j = 0; j < replicas.Value; j++)
             {
-                Console.WriteLine("------------------------------ Réplica "+ (j+1) +" ------------------------------");
-                lineasArchivo.Add(">Replica " + (j + 1));
-                Poblacion = new Poblacion((int)tamañoInicial.Value, (float)porcentajeA.Value / 100);
-                Organismo.FitnessA = (float)fitnessA.Value;
+                Console.WriteLine("------------------------------ Replica "+ (j+1) +" ------------------------------");
+                fileLines.Add(">Replica " + (j + 1));
+                Population = new Population((int)initialSize.Value, (float)aPercentaje.Value / 100);
+                Organism.FitnessA = (float)fitnessA.Value;
+                PrintPopulation(1); // prints the first generation. Can be done with a Do...while
+                bool capReached = false;
 
-                ImprimirPoblacion(1);
-                bool topeAlcanzado = false;
-
-                for (int i = 0; i < numCiclos.Value && !topeAlcanzado; i++)
+                for (int i = 0; i < numCycles.Value && !capReached; i++)
                 {
 
-                    float multiplicador = (1 + (float)(crecimiento.Value / 100));
-                    float adicion = Poblacion.Organismos.Length * multiplicador;
+                    float multiplicador = (1 + (float)(growth.Value / 100));
+                    float adicion = Population.Organisms.Length * multiplicador;
                     int nuevoTamaño = (int)adicion;
 
-                    nuevoTamaño = (crecimiento.Value != 0 && nuevoTamaño == Poblacion.Organismos.Length) ? nuevoTamaño + 1 : nuevoTamaño;
-                    Poblacion.Reproducir(nuevoTamaño);
-                    topeAlcanzado = ImprimirPoblacion(i + 2);
+                    nuevoTamaño = (growth.Value != 0 && nuevoTamaño == Population.Organisms.Length) ? nuevoTamaño + 1 : nuevoTamaño;
+                    Population.Reproduce(nuevoTamaño);
+                    capReached = PrintPopulation(i + 2);
                 }
-
-
-                /*foreach (var org in Poblacion.Organismos)
-                {
-                    Console.WriteLine(org.rasgo + " fit: " + org.DarFitness());
-                }*/
 
                 Console.WriteLine("------------------------------ FIN ------------------------------");
             }
 
-            System.IO.File.WriteAllLines("Resultados.txt", lineasArchivo.ToArray());
+            System.IO.File.WriteAllLines("Resultados.txt", fileLines.ToArray());
 
         }
 
-
-        private bool ImprimirPoblacion(int generacion)
+        /// <summary>
+        /// Prints the current state of the population.
+        /// Returns true if the A trait either dissapears or reached a 100% coverage
+        /// </summary>
+        /// <param name="generation">generation number</param>
+        /// <returns>returns true if the A trait either dissapears or reached a 100% coverage</returns>
+        private bool PrintPopulation(int generation)
         {
             
-            Console.WriteLine("Generación " + generacion + " ------------------------------");
-            Console.WriteLine("individuos: " + Poblacion.Organismos.Length);
-            int As = 0;
+            Console.WriteLine("Generación " + generation + " ------------------------------");
+            Console.WriteLine("individuos: " + Population.Organisms.Length);
+            int As = 0; // number of organism with the 'A' trait.
 
-
-            foreach (var organismo in Poblacion.Organismos)
+            foreach (var organism in Population.Organisms)
             {
-                if (organismo.rasgo == Organismo.Rasgo.A)
+                if (organism.trait == Organism.Trait.A)
                     As++;
-                 //Console.WriteLine(organismo.rasgo); // Imprime cada organismo
             }
-            float porcentajeA = (float)As / Poblacion.Organismos.Length * 100f;
-            bool topeAlcanzado = (porcentajeA == 100f || porcentajeA == 0f);
-            Console.WriteLine("%A:  " + porcentajeA);
-            Console.WriteLine("%B:  " + (100f - porcentajeA));
-            lineasArchivo.Add(generacion + ";" + porcentajeA +";" + (100f - porcentajeA) +";"+ Poblacion.Organismos.Length);
-            return topeAlcanzado;
-        }
 
+            float aPercentage = (float)As / Population.Organisms.Length * 100f;
+            bool capReached = (aPercentage == 100f || aPercentage == 0f);
+            Console.WriteLine("%A:  " + aPercentage);
+            Console.WriteLine("%B:  " + (100f - aPercentage));
+            fileLines.Add(generation + ";" + aPercentage +";" + (100f - aPercentage) +";"+ Population.Organisms.Length);
+            return capReached;
+        }
 
     }
 }

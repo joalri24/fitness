@@ -29,24 +29,24 @@
         private void InitializeComponent()
         {
             this.label1 = new System.Windows.Forms.Label();
-            this.tamañoInicial = new System.Windows.Forms.NumericUpDown();
-            this.porcentajeA = new System.Windows.Forms.NumericUpDown();
+            this.initialSize = new System.Windows.Forms.NumericUpDown();
+            this.aPercentaje = new System.Windows.Forms.NumericUpDown();
             this.label2 = new System.Windows.Forms.Label();
             this.fitnessA = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
-            this.crecimiento = new System.Windows.Forms.NumericUpDown();
+            this.growth = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
-            this.numCiclos = new System.Windows.Forms.NumericUpDown();
+            this.numCycles = new System.Windows.Forms.NumericUpDown();
             this.label5 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.replicas = new System.Windows.Forms.NumericUpDown();
             this.label7 = new System.Windows.Forms.Label();
-            ((System.ComponentModel.ISupportInitialize)(this.tamañoInicial)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.porcentajeA)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.initialSize)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aPercentaje)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessA)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.crecimiento)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numCiclos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.growth)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCycles)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.replicas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -59,29 +59,29 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Número inicial";
             // 
-            // tamañoInicial
+            // initialSize
             // 
-            this.tamañoInicial.Location = new System.Drawing.Point(100, 11);
-            this.tamañoInicial.Minimum = new decimal(new int[] {
+            this.initialSize.Location = new System.Drawing.Point(100, 11);
+            this.initialSize.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.tamañoInicial.Name = "tamañoInicial";
-            this.tamañoInicial.Size = new System.Drawing.Size(100, 20);
-            this.tamañoInicial.TabIndex = 1;
-            this.tamañoInicial.Value = new decimal(new int[] {
+            this.initialSize.Name = "initialSize";
+            this.initialSize.Size = new System.Drawing.Size(100, 20);
+            this.initialSize.TabIndex = 1;
+            this.initialSize.Value = new decimal(new int[] {
             1,
             0,
             0,
             0});
             // 
-            // porcentajeA
+            // aPercentaje
             // 
-            this.porcentajeA.Location = new System.Drawing.Point(100, 40);
-            this.porcentajeA.Name = "porcentajeA";
-            this.porcentajeA.Size = new System.Drawing.Size(62, 20);
-            this.porcentajeA.TabIndex = 3;
+            this.aPercentaje.Location = new System.Drawing.Point(100, 40);
+            this.aPercentaje.Name = "aPercentaje";
+            this.aPercentaje.Size = new System.Drawing.Size(62, 20);
+            this.aPercentaje.TabIndex = 3;
             // 
             // label2
             // 
@@ -124,17 +124,17 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Fitness  de A";
             // 
-            // crecimiento
+            // growth
             // 
-            this.crecimiento.Location = new System.Drawing.Point(99, 103);
-            this.crecimiento.Minimum = new decimal(new int[] {
+            this.growth.Location = new System.Drawing.Point(99, 103);
+            this.growth.Minimum = new decimal(new int[] {
             100,
             0,
             0,
             -2147483648});
-            this.crecimiento.Name = "crecimiento";
-            this.crecimiento.Size = new System.Drawing.Size(63, 20);
-            this.crecimiento.TabIndex = 7;
+            this.growth.Name = "growth";
+            this.growth.Size = new System.Drawing.Size(63, 20);
+            this.growth.TabIndex = 7;
             // 
             // label4
             // 
@@ -145,23 +145,23 @@
             this.label4.TabIndex = 6;
             this.label4.Text = "Crecimiento";
             // 
-            // numCiclos
+            // numCycles
             // 
-            this.numCiclos.Location = new System.Drawing.Point(99, 139);
-            this.numCiclos.Maximum = new decimal(new int[] {
+            this.numCycles.Location = new System.Drawing.Point(99, 139);
+            this.numCycles.Maximum = new decimal(new int[] {
             2000000,
             0,
             0,
             0});
-            this.numCiclos.Minimum = new decimal(new int[] {
+            this.numCycles.Minimum = new decimal(new int[] {
             1,
             0,
             0,
             0});
-            this.numCiclos.Name = "numCiclos";
-            this.numCiclos.Size = new System.Drawing.Size(86, 20);
-            this.numCiclos.TabIndex = 9;
-            this.numCiclos.Value = new decimal(new int[] {
+            this.numCycles.Name = "numCycles";
+            this.numCycles.Size = new System.Drawing.Size(86, 20);
+            this.numCycles.TabIndex = 9;
+            this.numCycles.Value = new decimal(new int[] {
             1,
             0,
             0,
@@ -235,23 +235,23 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.button1);
-            this.Controls.Add(this.numCiclos);
+            this.Controls.Add(this.numCycles);
             this.Controls.Add(this.label5);
-            this.Controls.Add(this.crecimiento);
+            this.Controls.Add(this.growth);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.fitnessA);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.porcentajeA);
+            this.Controls.Add(this.aPercentaje);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.tamañoInicial);
+            this.Controls.Add(this.initialSize);
             this.Controls.Add(this.label1);
             this.Name = "Fitness";
             this.Text = "Fitness";
-            ((System.ComponentModel.ISupportInitialize)(this.tamañoInicial)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.porcentajeA)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.initialSize)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.aPercentaje)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fitnessA)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.crecimiento)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numCiclos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.growth)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numCycles)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.replicas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -261,14 +261,14 @@
         #endregion
 
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.NumericUpDown tamañoInicial;
-        private System.Windows.Forms.NumericUpDown porcentajeA;
+        private System.Windows.Forms.NumericUpDown initialSize;
+        private System.Windows.Forms.NumericUpDown aPercentaje;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.NumericUpDown fitnessA;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.NumericUpDown crecimiento;
+        private System.Windows.Forms.NumericUpDown growth;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numCiclos;
+        private System.Windows.Forms.NumericUpDown numCycles;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label6;
